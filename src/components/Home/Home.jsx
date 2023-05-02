@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import ggg from '../../assets/img3.jpg'
-import ChefCard from '../../ChefCard/ChefCard';
+import ChefCard from '../ChefCard/ChefCard';
 const Home = () => {
 
     const [chefs, setChefs] = useState([])
@@ -13,7 +13,7 @@ const Home = () => {
     }, [])
 
     return (
-        <div>
+        <div className='w-full'>
             <div style={{ backgroundImage: `url(${ggg})`, backgroundSize: 'cover', height: '100vh' }} className='grid grid-cols-2 gap-5 bg-no-repeat'>
                 <div>
                     <h2 className='text-5xl font-bold'>Let's Start Cooking With Popular Recipes</h2>
@@ -54,11 +54,11 @@ const Home = () => {
                     </div>
                 </div>
             </div>
-            <div>
-                <h1>
+            <div className='w-10/12 mx-auto'>
+                <h1 className='text-center text-3xl font-bold my-10'>
                     All Chef
                 </h1>
-                <div className='grid grid-cols-3'>
+                <div className='grid lg:grid-cols-3 gap-6'>
                 {
                     chefs.map(chef => <ChefCard key={chef.id} chef={chef} />)
                 }
