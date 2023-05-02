@@ -8,6 +8,7 @@ const Home = () => {
     const [chefs, setChefs] = useState([])
 
     useEffect(() => {
+        // fetch(' https://chef-recipe-hunter-server-emayethossen.vercel.app/chefs')
         fetch('http://localhost:3000/chefs')
             .then(res => res.json())
             .then(data => setChefs(data))

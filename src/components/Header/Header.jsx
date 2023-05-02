@@ -5,8 +5,14 @@ import { FaUserCircle } from 'react-icons/fa';
 
 const Header = () => {
 
-    const { user } = useContext(AuthContext)
-
+    const { user,logOut } = useContext(AuthContext)
+const handleLogOut=()=>{
+    logOut()
+    .then()
+    .catch(error=>{
+        console.log(error);
+    })
+}
     return (
         <div className='bg-red-100'>
             <div className='flex justify-between items-center w-3/4 mx-auto py-8 text-gray-600'>
@@ -17,10 +23,10 @@ const Header = () => {
                     <Link to='/about' >About</Link>
                     <Link to='/contact' >Contact</Link>
                 </div>
-                <div>
-                {user && <button><FaUserCircle /></button>}
+                <div className='flex justify-center'>
+                {user && <button  title={user.displayName} className='mr-2 text-xl'><FaUserCircle /></button>}
                     {user ?
-                        <button>Logout</button> :
+                        <button onClick={handleLogOut}>Logout</button> :
                         <Link to='/login' >Login</Link>
                     }
                 </div>
