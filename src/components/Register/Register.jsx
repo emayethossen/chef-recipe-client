@@ -17,9 +17,9 @@ const Register = () => {
                 <p className='mt-2 text-center'>Already have an account?<Link className='text-red-300 underline' to='/login'> Login</Link></p>
             </div>
             <div className='my-6 w-4/5 mx-auto flex items-center justify-between'>
-                <div className='w-2/5 h-0 border border-red-500'></div>
+                <div className='w-2/5 h-0 border border-red-400'></div>
                 <div>or</div>
-                <div className='w-2/5 h-0 border border-red-500'></div>
+                <div className='w-2/5 h-0 border border-red-400'></div>
             </div>
             <div className='text-center space-y-4'>
                 <button className="btn btn-outline"><img className='w-5 mr-6' src={google} alt="" /> Continue With Google</button><br />
