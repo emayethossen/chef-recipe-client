@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import ggg from '../../assets/img3.jpg'
 import ChefCard from '../ChefCard/ChefCard';
+import Recipe from '../Recipe/Recipe';
+import SugarRec from '../SugarRes/SugarRec';
 const Home = () => {
 
     const [chefs, setChefs] = useState([])
@@ -63,6 +65,12 @@ const Home = () => {
                     chefs.map(chef => <ChefCard key={chef.id} chef={chef} />)
                 }
                 </div>
+            </div>
+            <div>
+                <Recipe />
+            </div>
+            <div>
+                <SugarRec />
             </div>
         </div>
     );
