@@ -11,7 +11,7 @@ const ChefCard = ({ chef }) => {
                     <h2 className="card-title">{name}</h2>
                     <p className='text-justify'>{bio.length<165?<>{bio}</>:<>{bio.slice(0,165)}...</>}</p>
                     <div className="card-actions justify-center">
-                        <Link to={`/chefrecipe/${id}`}><button className="btn btn-primary">View Details</button></Link>
+                        <Link to={`/chefrecipe/${id}`}><button className="btn btn-primary">View Recipes</button></Link>
                     </div>
                 </div>
             </div>

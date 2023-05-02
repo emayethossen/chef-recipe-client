@@ -12,14 +12,14 @@ const Footer = () => {
                 <FaTwitter className='text-sky-500' />
                 <FaLinkedin className='text-blue-700' />
             </div>
-            <div className='flex justify-center items-center space-x-6 text-lg font-bold'>
+            <div className='flex justify-center items-center lg:space-x-6 space-x-2 lg:text-lg font-bold'>
                 <Link to='/' >Home</Link>
                 <Link to='/' >Blog</Link>
                 <Link to='/' >About</Link>
                 <Link to='/' >Contact</Link>
                 <Link to='/' >Location</Link>
             </div>
-            <div className='flex justify-center items-center space-x-6 text-sm font-semibold'>
+            <div className='flex justify-center items-center lg:space-x-6 space-x-2 text-sm font-semibold'>
                 <Link to='/' >Contact</Link>
                 <p>|</p>
                 <Link to='/' >Blog</Link>
@@ -32,8 +32,8 @@ const Footer = () => {
             </div>
         </div>
         <div className='bg-gray-300 py-8 space-y-4'>
-            <h2 className='uppercase text-center text-2xl font-bold text-gray-600'>Healthy fast casual food crafted with in <span className='text-white text-2xl'>♡</span> emayet hossen </h2>
-            <p className='uppercase text-center text-lg font-semibold text-slate-700'>&copy;Agra culture citchen & press || All right reserved</p>
+            <h2 className='uppercase text-center lg:text-2xl text-lg font-bold text-gray-600'>Healthy fast casual food crafted with in <span className='text-white text-2xl'>♡</span> emayet hossen </h2>
+            <p className='uppercase text-center lg:text-lg font-semibold text-slate-700'>&copy;Agra culture citchen & press || All right reserved</p>
         </div>
         </div>
     );

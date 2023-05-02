@@ -1,13 +1,10 @@
 import React from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react'
-
 import 'swiper/css'
 import 'swiper/css/effect-coverflow'
 import 'swiper/css/pagination'
 import 'swiper/css/navigation'
-
 import { EffectCoverflow, Pagination, Navigation } from 'swiper';
-
 import img1 from '../../assets/low-sugar-images/sug1.jpg'
 import img2 from '../../assets/low-sugar-images/sug2.jpg'
 import img3 from '../../assets/low-sugar-images/sug3.jpg'
@@ -31,7 +28,7 @@ const Slider = () => {
                 navigation={{
                     nextEl: '.swiper-button-next',
                     prevEl: '.swiper-button-prev',
-                    clickable:true
+                    clickable: true
                 }}
                 modules={[EffectCoverflow, Pagination, Navigation]}
                 coverflowEffect={
