@@ -1,9 +1,22 @@
 import React from 'react';
+import PDFFile from '../PDFFile/PDFFile';
+import { PDFDownloadLink } from '@react-pdf/renderer'
 
 const Blog = () => {
     return (
         <div className='my-10'>
-            <h2 className='text-3xl text-center font-bold text-sky-700 mb-6'>Blog Page</h2>
+            <div className='grid grid-cols-3 mb-6 justify-center items-center'>
+                <div></div>
+                <h2 className='text-3xl text-center font-bold text-sky-700'>Blog Page</h2>
+
+                <div>
+                    <PDFDownloadLink document={<PDFFile />} fileName='Recipes_menu_list'>
+                        {({ loading }) => (loading ? <button className='btn btn-error text-white'>Loading Document...</button> : <button className='btn btn-info text-white'>Download</button>)}
+                    </PDFDownloadLink>
+                    
+                </div>
+
+            </div>
             <div className='w-3/4 mx-auto flex items-center justify-center'>
 
                 <div className='space-y-5 text-justify'>

@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { lazy, Suspense } from 'react';
 import { Link, useLoaderData, useParams } from 'react-router-dom'
-import RecipeItems from '../RecipeItems/RecipeItems';
+// import RecipeItems from '../RecipeItems/RecipeItems';
+
+const RecipeItems = lazy(() => wait(1000).then(() => import('../RecipeItems/RecipeItems')))
 
 const ChefRecipe = () => {
 
@@ -21,12 +23,20 @@ const ChefRecipe = () => {
             </div>
             <div>
                 <h2 className='text-3xl font-bold text-center'>World Best Recipes</h2>
-            <div className='w-3/4 mx-auto my-10 lg:space-y-0 space-y-6 lg:grid grid-cols-3 gap-6'>
-            {recipes.map(recipe => <RecipeItems key={recipe.id} recipe={recipe} />)}
-            </div>
+                <div className='w-3/4 mx-auto my-10 lg:space-y-0 space-y-6 lg:grid grid-cols-3 gap-6'>
+                    {recipes.map(recipe => <Suspense fallback={
+                        <h2>Loading...</h2>
+                    }><RecipeItems key={recipe.id} recipe={recipe} /></Suspense>)}
+                </div>
             </div>
         </div>
     );
 };
+
+function wait(time) {
+    return new Promise(resolve => {
+        setTimeout(resolve, time)
+    })
+}
 
 export default ChefRecipe;

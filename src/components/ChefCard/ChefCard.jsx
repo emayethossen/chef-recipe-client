@@ -5,13 +5,16 @@ const ChefCard = ({ chef }) => {
     const {id, name, picture, experience_years, recipes_count, likes_count, bio } = chef
     return (
         <div>
-            <div className="card w-80 mx-auto bg-base-100 shadow-xl">
-                <figure><img src={picture} alt={name} /></figure>
+            <div className="card  mx-auto bg-base-100 shadow-xl">
+                <figure><img className='h-64 w-full' src={picture} alt={name} /></figure>
                 <div className="card-body">
                     <h2 className="card-title">{name}</h2>
-                    <p className='text-justify'>{bio.length<165?<>{bio}</>:<>{bio.slice(0,165)}...</>}</p>
+                    <p className='font-semibold '>Experience: {experience_years}</p>
+                    <p className='font-semibold '>Numbers os recipes: {recipes_count}</p>
+                    <p className='font-semibold '>Total React: {likes_count}</p>
+                    <p className='text-justify'><span className='font-semibold'>Description:</span> {bio.length<100?<>{bio}</>:<>{bio.slice(0,100)}...</>}</p>
                     <div className="card-actions justify-center">
-                        <Link to={`/chefrecipe/${id}`}><button className="btn btn-primary">View Recipes</button></Link>
+                        <Link to={`/chefrecipe/${id}`}><button className="btn bg-green-600 border-none">View Recipes</button></Link>
                     </div>
                 </div>
             </div>

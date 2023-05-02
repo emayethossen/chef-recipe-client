@@ -14,21 +14,21 @@ const Footer = () => {
             </div>
             <div className='flex justify-center items-center lg:space-x-6 space-x-2 lg:text-lg font-bold'>
                 <Link to='/' >Home</Link>
-                <Link to='/' >Blog</Link>
-                <Link to='/' >About</Link>
-                <Link to='/' >Contact</Link>
-                <Link to='/' >Location</Link>
+                <Link to='/blog' >Blog</Link>
+                <Link to='/about' >About</Link>
+                <Link to='/contact' >Contact</Link>
+                <Link to='/location' >Location</Link>
             </div>
             <div className='flex justify-center items-center lg:space-x-6 space-x-2 text-sm font-semibold'>
-                <Link to='/' >Contact</Link>
+                <Link to='/contact' >Contact</Link>
                 <p>|</p>
-                <Link to='/' >Blog</Link>
+                <Link to='/blog' >Blog</Link>
                 <p>|</p>
-                <Link to='/' >Delivery</Link>
+                <Link to='/delivery' >Delivery</Link>
                 <p>|</p>
-                <Link to='/' >Story</Link>
+                <Link to='/story' >Story</Link>
                 <p>|</p>
-                <Link to='/' >Location</Link>
+                <Link to='/location' >Location</Link>
             </div>
         </div>
         <div className='bg-gray-300 py-8 space-y-4'>

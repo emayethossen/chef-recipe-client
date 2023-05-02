@@ -5,7 +5,7 @@ import { AuthContext } from '../../providers/AuthProvider';
 
 const Login = () => {
     const [error, setError] = useState('')
-    const { signIn } = useContext(AuthContext)
+    const { signIn, googleSignIn, githubSignIn } = useContext(AuthContext)
     const navigate = useNavigate()
     const location = useLocation()
     const from = location.state?.from?.pathname || '/'
@@ -15,18 +15,39 @@ const Login = () => {
         const form = event.target;
         const email = form.email.value
         const password = form.password.value
-        console.log(email, password);
+        
         setError('')
         signIn(email, password)
             .then(result => {
                 const loggedUser = result.user
-                console.log(loggedUser);
                 navigate(from, { replace: true })
                 form.reset()
             })
             .catch(error => {
-                console.error(error);
-                setError('Invalid email or password')
+                setError(error.message)
+            })
+    }
+
+    const handleGoogleSignIn = () => {
+        googleSignIn()
+            .then(result => {
+                const createdUser = result.user
+                navigate(from, { replace: true })
+            })
+            .catch(error => {
+                setError(error.message)
+            })
+    }
+
+    const handleGithubSignIn = () => {
+        githubSignIn()
+            .then(result => {
+                const createdUser = result.user
+                navigate(from, { replace: true })
+            })
+            .catch(error => {
+                setError(error.message)
+                
             })
     }
 
@@ -47,8 +68,8 @@ const Login = () => {
                 <div className='w-2/5 h-0 border border-red-500'></div>
             </div>
             <div className='text-center space-y-4'>
-                <button className="btn btn-outline"><FaGoogle className='text-pink-500 mr-4 text-xl' /> Continue With Google</button><br />
-                <button className="btn btn-outline"><FaGithub className='text-gray-600 mr-5 text-xl' /> Continue With Github</button>
+                <button onClick={handleGoogleSignIn} className="btn btn-outline"><FaGoogle className='text-pink-500 mr-4 text-xl' /> Continue With Google</button><br />
+                <button onClick={handleGithubSignIn} className="btn btn-outline"><FaGithub className='text-gray-600 mr-5 text-xl' /> Continue With Github</button>
             </div>
         </div>
     );

@@ -1,11 +1,12 @@
 import React, { useContext, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { FaGithub, FaGoogle } from 'react-icons/fa';
 import { AuthContext } from '../../providers/AuthProvider';
 
 const Register = () => {
     const [error, setError] = useState('')
     const { createUser, googleSignIn, githubSignIn } = useContext(AuthContext)
+    const navigate = useNavigate()
 
     const handleRegister = (event) => {
         event.preventDefault();
@@ -36,6 +37,7 @@ const Register = () => {
             .then(result => {
                 const createdUser = result.user
                 console.log(createdUser);
+                navigate('/')
                 form.reset()
             })
             .catch(error => {
@@ -49,6 +51,7 @@ const Register = () => {
             .then(result => {
                 const createdUser = result.user
                 console.log(createdUser);
+                navigate('/')
             })
             .catch(error => {
                 console.error(error);
@@ -61,6 +64,8 @@ const Register = () => {
             .then(result => {
                 const createdUser = result.user
                 console.log(createdUser);
+                navigate('/')
+
             })
             .catch(error => {
                 console.error(error);

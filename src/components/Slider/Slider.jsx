@@ -16,7 +16,9 @@ import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
 const Slider = () => {
     return (
         <div className='container'>
-            <h1 className='heading'>Trending Food</h1>
+            <h1 className='text-center text-white text-3xl font-bold mb-10'>
+                    Our Trending Foods
+                </h1>
             <Swiper
                 effect={'coverflow'}
                 grabCursor={true}
@@ -42,22 +44,22 @@ const Slider = () => {
                 className='swiper_container'
             >
                 <SwiperSlide>
-                    <img src={img1} alt="slide_image" />
+                    <img className='rounded' src={img1} alt="slide_image" />
                 </SwiperSlide>
                 <SwiperSlide>
-                    <img src={img2} alt="slide_image" />
+                    <img className='rounded' src={img2} alt="slide_image" />
                 </SwiperSlide>
                 <SwiperSlide>
-                    <img src={img3} alt="slide_image" />
+                    <img className='rounded' src={img3} alt="slide_image" />
                 </SwiperSlide>
                 <SwiperSlide>
-                    <img src={img4} alt="slide_image" />
+                    <img className='rounded' src={img4} alt="slide_image" />
                 </SwiperSlide>
                 <SwiperSlide>
-                    <img src={img5} alt="slide_image" />
+                    <img className='rounded' src={img5} alt="slide_image" />
                 </SwiperSlide>
                 <SwiperSlide>
-                    <img src={img6} alt="slide_image" />
+                    <img className='rounded' src={img6} alt="slide_image" />
                 </SwiperSlide>
 
                 <div className="slider-controler">

@@ -1,6 +1,6 @@
+import React from "react";
 import {
     createBrowserRouter,
-    RouterProvider,
 } from "react-router-dom";
 import Main from "../layout/Main";
 import Blog from "../components/Blog/Blog";
@@ -10,6 +10,8 @@ import Home from "../components/Home/Home";
 import ErrorPage from "../components/ErrorPage/ErrorPage";
 import ChefRecipe from "../components/ChefRecipe/ChefRecipe";
 import PrivateRoute from "./PrivateRoute";
+import About from "../components/About/About";
+import Contact from "../components/Contact/Contact";
 
 
 const router = createBrowserRouter([
@@ -25,6 +27,14 @@ const router = createBrowserRouter([
             {
                 path: "/blog",
                 element: <Blog />,
+            },
+            {
+                path: "/about",
+                element: <About />,
+            },
+            {
+                path: "/contact",
+                element: <Contact />,
             },
             {
                 path: "/login",
