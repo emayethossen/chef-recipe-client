@@ -1,5 +1,5 @@
 import React, { useEffect, useState, lazy, Suspense } from 'react';
-import ggg from '../../assets/img3.jpg'
+import ggg from '../../assets/banner.jpg'
 import Recipe from '../Recipe/Recipe';
 import SugarRec from '../SugarRes/SugarRec';
 import Slider from '../Slider/Slider';
@@ -12,8 +12,7 @@ const Home = () => {
     const [chefs, setChefs] = useState([])
 
     useEffect(() => {
-        // fetch('http://localhost:3000/chefs')
-        fetch(' https://chef-recipe-hunter-server-emayethossen.vercel.app/chefs')
+        fetch('https://chef-recipe-hunter-server-emayethossen.vercel.app/chefs')
             .then(res => res.json())
             .then(data => setChefs(data))
             .catch(error => console.error(error))
@@ -21,8 +20,8 @@ const Home = () => {
 
     return (
         <div className='w-full'>
-            <div style={{ backgroundImage: `linear-gradient(to right, #0037ffad, #0037ff40),url(${ggg})`, height: '100vh' }} className='bg-no-repeat w-full h-full bg-cover lg:mb-0 mb-36'>
-                <div className='lg:grid grid-cols-2 gap-5 justify-center items-center h-screen w-5/6 mx-auto'>
+            <div style={{ backgroundImage: `linear-gradient(to right, #0037ffad, #0037ff40),url(${ggg})`, height: '100vh' }} className='bg-no-repeat w-full h-full bg-cover'>
+                <div className='lg:grid grid-cols-2 gap-5 w-5/6 text-center mx-auto'>
                     <SliderText />
                     <Slider />
                 </div>

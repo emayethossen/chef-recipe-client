@@ -5,7 +5,8 @@ A simple World Best Recipes Single Page Application with React Js..
 
 # Live Link: 
 
-https://transcendent-salamander-db1d1a.netlify.app/
+https://chef-recipe-hunter-52f6d.web.app/
+
 ## Features
 
 - Any Food You Ordered
