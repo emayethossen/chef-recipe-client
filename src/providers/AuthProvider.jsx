@@ -3,6 +3,7 @@ import { GithubAuthProvider, GoogleAuthProvider, createUserWithEmailAndPassword,
 import app from '../firebase/firebase.config';
 
 export const AuthContext = createContext(null)
+
 const auth = getAuth(app)
 
 const googleProvider = new GoogleAuthProvider();
@@ -41,7 +42,6 @@ const AuthProvider = ({ children }) => {
 
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, loggedUser => {
-            console.log(loggedUser);
             setUser(loggedUser)
             setLoading(false)
         })

@@ -5,7 +5,7 @@ A simple World Best Recipes Single Page Application with React Js..
 
 # Live Link: 
 
-https://chef-recipe-hunter-52f6d.web.app/
+https://superlative-kulfi-6fb8cf.netlify.app/
 
 ## Features
 

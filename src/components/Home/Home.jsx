@@ -1,7 +1,7 @@
 import React, { useEffect, useState, lazy, Suspense } from 'react';
 
 const HeaderSec = lazy(() => wait(1000).then(() => import('../HeaderSec/HeaderSec')))
-const ChefCard = lazy(() => wait(1000).then(() => import('../ChefCard/ChefCard')))
+const ChefCard = lazy(() => wait(8000).then(() => import('../ChefCard/ChefCard')))
 const Recipe = lazy(() => wait(2000).then(() => import('../Recipe/Recipe')))
 const SugarRec = lazy(() => wait(3000).then(() => import('../SugarRes/SugarRec')))
 
@@ -33,14 +33,14 @@ const Home = () => {
             </Suspense>
 
             {/* This Is Chefs Section */}
-
-            <div className='w-10/12 mx-auto'>
-                <h1 className='text-center text-3xl font-bold my-10'>
-                    Our Top Chefs
-                </h1>
-                <div className='grid lg:grid-cols-3 gap-6'>
-                    {
-                        chefs.map(chef => <Suspense fallback={<div className="flex h-screen w-screen items-center justify-center">
+            
+                <div className='w-10/12 mx-auto'>
+                    <h1 className='text-center text-3xl font-bold my-10'>
+                        Our Top Chefs
+                    </h1>
+                    <div className='grid lg:grid-cols-3 gap-6'>
+                        {
+                            chefs.map(chef => <Suspense fallback={<div className="flex h-screen w-screen items-center justify-center">
                             <button type="button" className="flex items-center rounded-lg bg-sky-500 px-4 py-2 text-white" disabled>
                                 <svg className="mr-3 h-5 w-5 animate-spin text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                                     <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
@@ -49,9 +49,10 @@ const Home = () => {
                                 <span className="font-medium"> Processing... </span>
                             </button>
                         </div>}><ChefCard key={chef.id} chef={chef} /></Suspense>)
-                    }
+                        }
+                    </div>
                 </div>
-            </div>
+            
             {/* Recipe SecTion */}
             <div>
                 <Suspense fallback={<div className="flex h-screen w-screen items-center justify-center">
