@@ -13,7 +13,7 @@ const ChefCard = ({ chef }) => {
                     <p className='font-semibold '>Experience: {experience_years}years</p>
                     <p className='font-semibold '>Number of recipes: {recipes_count}</p>
                     <div className='flex'>
-                    <button><FcLike /></button>
+                    <button><FcLike className='text-xl' /></button>
                     <p className='font-semibold '> {likes_count}</p>
                     </div>
                     <p className='text-justify'><span className='font-semibold'>Description:</span> {bio.length<100?<>{bio}</>:<>{bio.slice(0,100)}...</>}</p>

@@ -2,7 +2,8 @@ import React, { useEffect, useState, lazy, Suspense } from 'react';
 import ggg from '../../assets/banner.jpg'
 import Recipe from '../Recipe/Recipe';
 import SugarRec from '../SugarRes/SugarRec';
-import Slider from '../Slider/Slider';
+import Lottie from 'lottie-react';
+import cooking from '../../assets/cooking.json';
 import SliderText from '../SliderText/sliderText';
 
 const ChefCard = lazy(() => wait(1000).then(() => import('../ChefCard/ChefCard')))
@@ -20,10 +21,15 @@ const Home = () => {
 
     return (
         <div className='w-full'>
-            <div style={{ backgroundImage: `linear-gradient(to right, #0037ffad, #0037ff40),url(${ggg})`, height: '100vh' }} className='bg-no-repeat w-full h-full bg-cover'>
-                <div className='lg:grid grid-cols-2 gap-5 w-5/6 text-center mx-auto'>
+            <div className='bg-gradient-to-r from-sky-600 to-sky-200'>
+
+                <div className='flex flex-col lg:flex-row-reverse items-center md:flex-row lg:w-3/4 mx-auto pt-12 lg:pt-0 lg:pb-0 pb-16'>
+                    <div className='relative order-first'>
+                        <div className='w-full lg:w-4/5 lg:ml-auto -mt-16 lg:mt-16'>
+                            <Lottie animationData={cooking} loop={true} />
+                        </div>
+                    </div>
                     <SliderText />
-                    <Slider />
                 </div>
             </div>
 

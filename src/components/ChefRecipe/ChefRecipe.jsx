@@ -1,6 +1,6 @@
 import React, { lazy, Suspense } from 'react';
+import { FcLike } from 'react-icons/fc';
 import { Link, useLoaderData, useParams } from 'react-router-dom'
-// import RecipeItems from '../RecipeItems/RecipeItems';
 
 const RecipeItems = lazy(() => wait(1000).then(() => import('../RecipeItems/RecipeItems')))
 
@@ -9,16 +9,20 @@ const ChefRecipe = () => {
     const { id } = useParams()
     const chefDetails = useLoaderData()
     console.log(chefDetails.recipes);
-    const { name, picture, bio, experience_years, likes_count, recipes } = chefDetails
+    const { name, picture, bio, experience_years, likes_count,recipes_count, recipes } = chefDetails
     return (
         <div>
             <div className="lg:grid grid-cols-2 justify-center items-center lg:w-3/4 mx-auto my-10 bg-base-100 shadow-xl">
-                <figure><img src={picture} alt={name} /></figure>
+                <figure><img className='rounded lg:ml-4' src={picture} alt={name} /></figure>
                 <div className="card-body">
                     <h2 className="text-2xl font-bold">{name}</h2>
                     <p className='text-justify'>{bio}</p>
-                    <p><span className='font-semibold'>Total Likes:</span> {likes_count}</p>
-                    <p><span className='font-semibold'>Experience:</span> {experience_years}</p>
+                    <p className='font-semibold '>Experience: {experience_years}years</p>
+                    <p className='font-semibold '>Number of recipes: {recipes_count}</p>
+                    <div className='flex'>
+                    <button><FcLike className='text-xl' /></button>
+                    <p className='font-semibold '> {likes_count}</p>
+                    </div>
                 </div>
             </div>
             <div>

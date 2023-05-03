@@ -6,7 +6,7 @@ import { FaRegStar, FaStar } from 'react-icons/fa'
 
 const RecipeItems = ({ recipe }) => {
     const [isDisable, setIsDisable] = useState(false)
-    const { name, image, price, rating,method } = recipe
+    const { name, image, price, rating, method, ingredients } = recipe
     const notify = () => {
 
         setIsDisable(true)
@@ -20,8 +20,9 @@ const RecipeItems = ({ recipe }) => {
                 <figure><img className='h-56 w-full' src={image} alt="" /></figure>
                 <div className="card-body">
                     <h2 className="card-title">{name}</h2>
+                    <p><span className='font-semibold'>Ingredients:</span>{ ingredients.map(ingredient => <li>{ingredient}</li>) }</p>
                     <p>
-{method}
+                        <span className='font-semibold'>Cooking Method: </span>{method}
                     </p>
                     <div className='grid grid-cols-2'>
                         <div className='flex items-center justify-center'>
