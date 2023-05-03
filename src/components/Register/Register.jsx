@@ -2,6 +2,7 @@ import React, { useContext, useState } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { FaGithub, FaGoogle } from 'react-icons/fa';
 import { AuthContext } from '../../providers/AuthProvider';
+import { updateProfile } from 'firebase/auth';
 
 const Register = () => {
     const [error, setError] = useState('')
@@ -37,6 +38,9 @@ const Register = () => {
             .then(result => {
                 const createdUser = result.user
                 console.log(createdUser);
+                updateProfile(createdUser, {
+                    displayName: name, photoURL: photo
+                  })
                 navigate('/')
                 form.reset()
             })

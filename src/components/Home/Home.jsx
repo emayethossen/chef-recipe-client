@@ -1,12 +1,9 @@
 import React, { useEffect, useState, lazy, Suspense } from 'react';
-import ggg from '../../assets/banner.jpg'
-import Recipe from '../Recipe/Recipe';
-import SugarRec from '../SugarRes/SugarRec';
-import Lottie from 'lottie-react';
-import cooking from '../../assets/cooking.json';
-import SliderText from '../SliderText/sliderText';
 
+const HeaderSec = lazy(() => wait(1000).then(() => import('../HeaderSec/HeaderSec')))
 const ChefCard = lazy(() => wait(1000).then(() => import('../ChefCard/ChefCard')))
+const Recipe = lazy(() => wait(2000).then(() => import('../Recipe/Recipe')))
+const SugarRec = lazy(() => wait(3000).then(() => import('../SugarRes/SugarRec')))
 
 const Home = () => {
 
@@ -21,17 +18,21 @@ const Home = () => {
 
     return (
         <div className='w-full'>
-            <div className='bg-gradient-to-r from-sky-600 to-sky-200'>
 
-                <div className='flex flex-col lg:flex-row-reverse items-center md:flex-row lg:w-3/4 mx-auto pt-12 lg:pt-0 lg:pb-0 pb-16'>
-                    <div className='relative order-first'>
-                        <div className='w-full lg:w-4/5 lg:ml-auto -mt-16 lg:mt-16'>
-                            <Lottie animationData={cooking} loop={true} />
-                        </div>
-                    </div>
-                    <SliderText />
-                </div>
-            </div>
+            {/* This is Header Section */}
+            <Suspense fallback={<div className="flex h-screen w-screen items-center justify-center">
+                <button type="button" className="flex items-center rounded-lg bg-sky-500 px-4 py-2 text-white" disabled>
+                    <svg className="mr-3 h-5 w-5 animate-spin text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                        <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                        <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                    </svg>
+                    <span className="font-medium"> Processing... </span>
+                </button>
+            </div>}>
+                <HeaderSec />
+            </Suspense>
+
+            {/* This Is Chefs Section */}
 
             <div className='w-10/12 mx-auto'>
                 <h1 className='text-center text-3xl font-bold my-10'>
@@ -39,15 +40,45 @@ const Home = () => {
                 </h1>
                 <div className='grid lg:grid-cols-3 gap-6'>
                     {
-                        chefs.map(chef => <Suspense fallback={<h2>Loading...</h2>}><ChefCard key={chef.id} chef={chef} /></Suspense>)
+                        chefs.map(chef => <Suspense fallback={<div className="flex h-screen w-screen items-center justify-center">
+                            <button type="button" className="flex items-center rounded-lg bg-sky-500 px-4 py-2 text-white" disabled>
+                                <svg className="mr-3 h-5 w-5 animate-spin text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                    <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                                    <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                                </svg>
+                                <span className="font-medium"> Processing... </span>
+                            </button>
+                        </div>}><ChefCard key={chef.id} chef={chef} /></Suspense>)
                     }
                 </div>
             </div>
+            {/* Recipe SecTion */}
             <div>
-                <Recipe />
+                <Suspense fallback={<div className="flex h-screen w-screen items-center justify-center">
+                    <button type="button" className="flex items-center rounded-lg bg-sky-500 px-4 py-2 text-white" disabled>
+                        <svg className="mr-3 h-5 w-5 animate-spin text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                            <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                            <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                        </svg>
+                        <span className="font-medium"> Processing... </span>
+                    </button>
+                </div>}>
+                    <Recipe />
+                </Suspense>
             </div>
+            {/* Low Sugar Section */}
             <div>
-                <SugarRec />
+                <Suspense fallback={<div className="flex h-screen w-screen items-center justify-center">
+                    <button type="button" className="flex items-center rounded-lg bg-sky-500 px-4 py-2 text-white" disabled>
+                        <svg className="mr-3 h-5 w-5 animate-spin text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                            <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                            <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                        </svg>
+                        <span className="font-medium"> Processing... </span>
+                    </button>
+                </div>}>
+                    <SugarRec />
+                </Suspense>
             </div>
         </div>
     );

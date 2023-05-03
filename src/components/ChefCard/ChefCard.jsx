@@ -18,7 +18,7 @@ const ChefCard = ({ chef }) => {
                     </div>
                     <p className='text-justify'><span className='font-semibold'>Description:</span> {bio.length<100?<>{bio}</>:<>{bio.slice(0,100)}...</>}</p>
                     <div className="card-actions justify-center">
-                        <Link to={`/chefrecipe/${id}`}><button className="btn bg-green-600 border-none">View Recipes</button></Link>
+                        <Link to={`/chefrecipe/${id}`}><button className="btn bg-sky-500 border-none">View Recipes</button></Link>
                     </div>
                 </div>
             </div>

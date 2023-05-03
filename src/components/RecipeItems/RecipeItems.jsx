@@ -38,8 +38,8 @@ const RecipeItems = ({ recipe }) => {
                         <p className='font-semibold text-right text-lg'>Price: ${price}</p>
                     </div>
                     <div className="card-actions justify-center">
-                        <button onClick={order} className="btn btn-primary">Order Now</button>
-                        <button onClick={notify} disabled={isDisable} className="btn btn-primary">Favourite</button>
+                        <button onClick={order} className="btn btn-error text-white">Order Now</button>
+                        <button onClick={notify} disabled={isDisable} className="btn border-none bg-sky-500">Favourite</button>
                         <ToastContainer />
                     </div>
                 </div>

@@ -1,3 +1,6 @@
 .active{
-    background: rgba(219, 190, 3, 0.975) !important; 
+    background: cornflowerblue !important; 
+}
+.active:hover{
+    background: hotpink !important;
 }
